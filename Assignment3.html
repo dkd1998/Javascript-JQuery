@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <title>JQuery Assignment</title>
-   <style>
-       button{
-        background-color: orange;
-        border: .25em solid black;
-        border-radius: 10px;
-        font-family: Arial, Helvetica, sans-serif;
-        color: black;
-        font-size: 1em;
-        padding: 10px;
-    }
-    button:hover{
-        background-color: white;
-        border: .25emx solid black;
-        border-radius: 10px;
-        font-family: Arial, Helvetica, sans-serif;
-        color: orange;
-        font-size: 1em;
-        padding: 10px;
-       
-        
-    }
-        #load-data{
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>JQuery Assignment</title>
+    <style>
+        button {
+            background-color: orange;
+            border: .25em solid black;
+            border-radius: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            font-size: 1em;
+            padding: 10px;
+        }
+
+        button:hover {
+            background-color: white;
+            border: .25emx solid black;
+            border-radius: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: orange;
+            font-size: 1em;
+            padding: 10px;
+
+
+        }
+
+        #load-data {
             font-family: Arial, Helvetica, sans-serif;
             font-size: larger;
         }
-        body{
+
+        body {
             background-color: cornsilk;
         }
-        .jsondata{
+
+        .jsondata {
             border: 2px solid black;
             margin-top: 1em;
             margin-bottom: 1em;
@@ -44,36 +48,38 @@
             border-radius: 1em;
             background: chocolate;
         }
-        .jsondata:hover{
+
+        .jsondata:hover {
             border: 2px solid black;
             margin-top: 1em;
             padding: 1em;
             color: white;
             background: brown;
             border-radius: 1em;
-    
-        }  
-   </style>
+
+        }
+    </style>
 </head>
- 
+
 <body>
-  <div id = "load-data"></div> 
-  <button id="load">Load Data</button>
-   <script>    
-        $(document).ready(function(){
-            $("#load").click(function(){
+    <div id="load-data"></div>
+    <button id="load">Load Data</button>
+    <script>
+        $(document).ready(function () {
+            $("#load").click(function () {
                 $.ajax({
-                    url:"https://jsonplaceholder.typicode.com/posts",
+                    url: "https://jsonplaceholder.typicode.com/posts",
                     type: "GET",
-                    success: function(data){
-                        $.each( data,function(key,value){
+                    success: function (data) {
+                        $.each(data, function (key, value) {
                             $("#load-data").append('<div class ="jsondata">' + '<h3>' + value.title + '</h3>' + value.body + '</div>')
-                            
-                        });  
-                        }
-                    })
-                });
+
+                        });
+                    }
+                })
             });
-   </script>
+        });
+    </script>
 </body>
-</html> 
+
+</html>
